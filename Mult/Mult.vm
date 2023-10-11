@@ -26,26 +26,14 @@ pop temp 0
 push temp 0
 push constant 0
 gt
-if-goto NEXT
+if-goto POSX
 push static 0
 neg
 pop temp 0
 
-//check if y negative
-label NEXT
-push static 1
-pop temp 1
-push temp 1
-push constant 0
-gt
-if-goto POSX
-push static 1
-neg
-pop temp 1
-
 // using absolute value of x and y, start summing total, absolute value of x stored in local 1
 label POSX
-push temp 1
+push static 1
 push local 0
 add
 pop local 0
@@ -63,15 +51,6 @@ if-goto POSX
 
 //if x is negative, make result negative
 push static 0
-push constant 0
-gt
-if-goto FINAL
-push local 0
-neg
-pop local 0
-
-label FINAL
-push static 1
 push constant 0
 gt
 if-goto END
