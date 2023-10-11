@@ -2,13 +2,13 @@
 // x & y are static variables
 
 // Put your code here.
-push static 1
-push static 1
+push static 0
+push static 0
 push constant 0
 gt
 if-goto POSITIVE
 neg
 label POSITIVE
-pop static 0
+pop static 1
 label END
 goto END
