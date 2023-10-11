@@ -3,6 +3,10 @@
 
 // Put your code here.
 push static 0
+push constant 0
+lt
+if-goto POSITIVE
+label POSITIVE
 neg
 pop static 1
 label END
