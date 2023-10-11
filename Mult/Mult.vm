@@ -45,8 +45,7 @@ sub
 pop temp 0
 push temp 0
 push constant 0
-eq
-neg
+ne
 if-goto POSX
 
 //if x is negative, make result negative
