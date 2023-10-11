@@ -20,7 +20,19 @@ push constant 0
 eq
 if-goto END
 
+//check if y is negative, adjusting as needed
+push static 1
+pop temp 1
+push temp 1
+push constant 0
+gt
+if-goto NEXT
+push static 1
+neg
+pop temp 1
+
 //check if x negative, adjusting as needed
+label NEXT
 push static 0
 pop temp 0
 push temp 0
@@ -49,7 +61,17 @@ eq
 neg
 if-goto POSX
 
+//if y is negative, make result negative
+push static 1
+push constant 0
+gt
+if-goto FINAL
+push local 0
+neg
+pop local 0
+
 //if x is negative, make result negative
+label FINAL
 push static 0
 push constant 0
 gt
