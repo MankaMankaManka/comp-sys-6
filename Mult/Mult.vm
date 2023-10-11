@@ -54,6 +54,8 @@ pop local 0
 push temp 0
 push constant 1
 sub
+pop temp 0
+push temp 0
 push constant 0
 eq
 neg
