@@ -3,8 +3,6 @@
 
 // Put your code here.
 push static 0
-push constant 0
-push static 0
 neg
 pop static 1
 label END
