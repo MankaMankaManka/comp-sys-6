@@ -7,6 +7,7 @@ push constant 0
 lt
 if-goto POSITIVE
 label POSITIVE
+push static 0
 neg
 pop static 1
 label END
