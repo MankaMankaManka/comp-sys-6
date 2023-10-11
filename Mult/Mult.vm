@@ -21,7 +21,7 @@ eq
 if-goto END
 
 //check if x negative, adjusting as needed
-push static 1
+push static 0
 pop local 1
 push local 1
 push constant 0
