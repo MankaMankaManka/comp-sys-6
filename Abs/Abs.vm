@@ -3,12 +3,9 @@
 
 // Put your code here.
 push static 0
-push static 0
 push constant 0
-gt
-if-goto POSITIVE
+push static 0
 neg
-label POSITIVE
 pop static 1
 label END
 goto END
