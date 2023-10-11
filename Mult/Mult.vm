@@ -5,6 +5,7 @@
 // Put your code here.
 
 //set a to 0, a is stored in local 0
+push local 0
 push constant 0
 pop local 0
 
