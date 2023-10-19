@@ -1,65 +1,39 @@
 // Calculates a = x*y
-// a is a local variable
-// x & y are static variables
+//new implementation
 
-// Put your code here. set a to 0, a is stored in local 0
 push constant 0
-pop local 0 //if x is zero, go to END, x is stored in static 0
-push static 0
-push constant 0
-eq
-if-goto END //if y is zero, go to END, y is stored in static 1
-push static 1
-push constant 0
-eq
-if-goto END //check if y is negative, adjusting as needed
-push static 1
-pop temp 1
-push temp 1
-push constant 0
-gt
-if-goto NEXT
-push static 1
-neg
-pop temp 1 //check if x negative, adjusting as needed
-label NEXT
+pop local 0 //set a to 0
+
 push static 0
 pop temp 0
 push temp 0
 push constant 0
 gt
+
 if-goto POSX
-push static 0
+push temp 0
 neg
-pop temp 0 // using absolute value of x and y, start summing total, absolute value of x stored in local 1
+pop temp 0
+
 label POSX
+push temp 0
+push constant 0
+eq
+if-goto FINAL
 push static 1
 push local 0
 add
-pop local 0 //decrementing x by 1, then repeating the cycle
-push temp 0
-push constant 1
-sub
-pop temp 0
-push temp 0
-push constant 0
-eq
-neg
-if-goto POSX //if y is negative, make result negative
-push static 1
-push constant 0
-gt
-if-goto FINAL
-push local 0
-neg
-pop local 0 //if x is negative, make result negative
+pop local 0
+goto POSX
+
 label FINAL
-push static 0
 push constant 0
-gt
+push static 0
+lt
 if-goto END
 push local 0
 neg
 pop local 0
+
 label END
 goto END
