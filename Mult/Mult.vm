@@ -24,6 +24,10 @@ push static 1
 push local 0
 add
 pop local 0
+push temp 0
+push constant 1
+sub
+pop temp 0
 goto POSX
 
 label FINAL
