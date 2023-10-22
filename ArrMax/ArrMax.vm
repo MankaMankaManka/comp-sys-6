@@ -24,6 +24,8 @@ label NEXT
 push temp 1
 push constant 1
 sub
+pop temp 1
+push temp 1
 push constant 0
 eq
 if-goto END
