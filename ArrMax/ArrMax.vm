@@ -3,7 +3,7 @@
 
 // Put your code here.
 //start function
-function ArrMax.arrmax 2
+function ArrMax.arrMax 2
 
 //store length of array in temp 1
 push argument 1
