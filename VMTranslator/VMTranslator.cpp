@@ -23,21 +23,23 @@ string VMTranslator::vm_push(string segment, int offset){
     if (segment == "constant") {
         return "@" + to_string(offset) + "\nD=A\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
     }
+        /*
     else if (segment == "temp") {
         return "@R5\nD=A\n@" + to_string(offset) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
     }
+    */
         string segmentBase = "";
         if (segment == "local") {
             segmentBase = "LCL";
         }
-            /*
+
         else if (segment == "this") {
             segmentBase = "THIS";
         }
         else if (segment == "that") {
             segmentBase = "THAT";
         }
-        */
+
         else if (segment == "argument") {
             segmentBase = "ARG";
         }
