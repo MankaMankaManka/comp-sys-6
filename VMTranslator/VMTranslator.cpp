@@ -135,17 +135,17 @@ string VMTranslator::vm_not(){
 
 /** Generate Hack Assembly code for a VM label operation */
 string VMTranslator::vm_label(string label){
-    return "(LOOP)";
+    return "("+label+")\n";
 }
 
 /** Generate Hack Assembly code for a VM goto operation */
 string VMTranslator::vm_goto(string label){
-    return "";
+    return "@"+label+"\n0;JMP\n";
 }
 
 /** Generate Hack Assembly code for a VM if-goto operation */
 string VMTranslator::vm_if(string label){
-    return "";
+    return "@SP\nM=M-1\nA=M\nD=M\n@"+label+"\nD;JNE\n";
 }
 
 /** Generate Hack Assembly code for a VM function operation */
