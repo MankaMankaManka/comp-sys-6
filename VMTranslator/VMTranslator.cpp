@@ -20,7 +20,28 @@ VMTranslator::~VMTranslator() {
 
 /** Generate Hack Assembly code for a VM push operation */
 string VMTranslator::vm_push(string segment, int offset){
-    return "";
+    if (segment == "constant") {
+        return "@" + to_string(offset) + "\nD=A\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
+    }
+    else if (segment == "temp") {
+        return "@R5\nD=A\n@" + to_string(offset) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
+    }
+    else if (segment == "local" || segment == "this" || segment == "that" || segment == "argument") {
+        string segmentBase = "";
+        if (segment == "local") {
+            segmentBase = "LCL";
+        }
+        else if (segment == "this") {
+            segmentBase = "THIS";
+        }
+        else if (segment == "that") {
+            segmentBase = "THAT";
+        }
+        else if (segment == "argument") {
+            segmentBase = "ARG";
+        }
+        return "@" + segmentBase + "\nD=M\n@" + to_string(offset) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
+    }
 }
 
 /** Generate Hack Assembly code for a VM pop operation */
