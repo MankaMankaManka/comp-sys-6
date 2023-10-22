@@ -23,10 +23,20 @@ string VMTranslator::vm_push(string segment, int offset){
     if (segment == "constant") {
         return "@" + to_string(offset) + "\nD=A\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
     }
+    if (segment == "static"){
+        return "@" + to_string(16 + offset) + "\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
         
     else if (segment == "temp") {
         return "@R5\nD=A\n@" + to_string(offset) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
     }
+        else if (segment == "pointer") {
+        if (offset == 0) {
+            return "@THIS\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
+
+        } else if (offset == 1) {
+            return "@THAT\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
+
+        }
         string segmentBase = "";
         if (segment == "local") {
             segmentBase = "LCL";
