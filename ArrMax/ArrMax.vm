@@ -44,4 +44,5 @@ pop temp 0
 goto NEXT
 
 label END
+push temp 0
 return
