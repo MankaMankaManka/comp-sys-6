@@ -2,4 +2,44 @@
 // a & b are both supplied as arguments
 
 // Put your code here.
+//start function
+function ArrMax.arrmax
 
+//store length of array in temp 1
+push argument 1
+pop temp 1
+
+//store pcrawl as temp 2
+push argument 0
+pop temp 2
+
+//go to first thing in array, store it as max number in temp 0
+push argument 0
+pop pointer 1
+push that 0
+pop temp 0
+
+//go to the next thing in the array, if it exists
+label NEXT
+push temp 1
+push constant 1
+sub
+push constant 1
+lt
+if-goto END
+
+//compare the next element in array to max element
+push constant 1
+push temp 2
+add
+pop pointer 1
+push that 0
+push temp 0
+lt
+if-goto NEXT
+push that 0
+pop temp 0
+goto NEXT
+
+label END
+return
