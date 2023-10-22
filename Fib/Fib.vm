@@ -1,29 +1,17 @@
-// Contains a function Fib.fib that calculates and returns the nth Fibonacci number recursively
-// n is supplied as an argument
-
-// Put your code here.
-// Runs x = Fib.fib(y) 
-// x & y are static variables
-
 function Fib.fib 1
+//check 0
 push constant 0
 push argument 0
 eq 
-neg
-if-goto CHECKONE
-push constant 0
-return
+if-goto ZERO
 
-label CHECKONE
+//check 1
 push constant 1
 push argument 0
 eq
-neg
-if-goto RECURSE
-push constant 1
-return
+if-goto ONE
 
-label RECURSE
+//since not 1 or 0, do recursion
 push argument 0
 push constant 1
 sub
@@ -33,4 +21,12 @@ push constant 2
 sub
 call Fib.fib 1
 add
+return
+
+label ZERO
+push constant 0
+return
+
+label ONE
+push constant 1
 return
