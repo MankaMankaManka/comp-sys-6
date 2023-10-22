@@ -35,7 +35,7 @@ string VMTranslator::vm_add(){
 
 /** Generate Hack Assembly code for a VM sub operation */
 string VMTranslator::vm_sub(){
-    return "";
+    return "@SP\nM=M-1\nA=M\nD=M\nA=A-1\nM=M-D\n";
 }
 
 /** Generate Hack Assembly code for a VM neg operation */
@@ -60,12 +60,12 @@ string VMTranslator::vm_lt(){
 
 /** Generate Hack Assembly code for a VM and operation */
 string VMTranslator::vm_and(){
-    return "";
+    return "@SP\nM=M-1\nA=M\nD=M\nA=A-1\nM=M&D\n";
 }
 
 /** Generate Hack Assembly code for a VM or operation */
 string VMTranslator::vm_or(){
-    return "";
+    return "@SP\nM=M-1\nA=M\nD=M\nA=A-1\nM=M|D\n";
 }
 
 /** Generate Hack Assembly code for a VM not operation */
