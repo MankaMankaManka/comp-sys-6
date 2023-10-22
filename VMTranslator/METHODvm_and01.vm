@@ -1,0 +1,9 @@
+constant 5
+constant 5
+and
+if-goto label END
+push constant 5
+pop static 0
+
+label END
+goto END
