@@ -46,9 +46,26 @@ string VMTranslator::vm_push(string segment, int offset){
 
 /** Generate Hack Assembly code for a VM pop operation */
 string VMTranslator::vm_pop(string segment, int offset){    
-    return "";
+    if (segment == "temp") {
+        return "@R5\nD=A\n@" + to_string(offset) + "\nD=D+A\n@R13\nM=D\n@SP\nM=M-1\nA=M\nD=M\n@R13\nA=M\nM=D\n";
+    }
+     else if (segment == "local" || segment == "this" || segment == "that" || segment == "argument") {
+        string segmentBase = "";
+        if (segment == "local") {
+            segmentBase = "LCL";
+        }
+        else if (segment == "this") {
+            segmentBase = "THIS";
+        }
+        else if (segment == "that") {
+            segmentBase = "THAT";
+        }
+        else if (segment == "argument") {
+            segmentBase = "ARG";
+        }
+        return "@" + segmentBase + "\nD=M\n@" + to_string(offset) + "\nD=D+A\n@R13\nM=D\n@SP\nM=M-1\nA=M\nD=M\n@R13\nA=M\nM=D\n";
+    }
 }
-
 /** Generate Hack Assembly code for a VM add operation */
 string VMTranslator::vm_add(){
     return "";
