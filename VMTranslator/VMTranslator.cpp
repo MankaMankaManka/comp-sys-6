@@ -30,12 +30,14 @@ string VMTranslator::vm_push(string segment, int offset){
         if (segment == "local") {
             segmentBase = "LCL";
         }
+            /*
         else if (segment == "this") {
             segmentBase = "THIS";
         }
         else if (segment == "that") {
             segmentBase = "THAT";
         }
+        */
         else if (segment == "argument") {
             segmentBase = "ARG";
         }
