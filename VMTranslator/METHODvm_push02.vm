@@ -1,0 +1,7 @@
+push static 0
+push static 0
+add
+pop static 0
+
+label END
+goto END
